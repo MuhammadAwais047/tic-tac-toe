@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tic Tac Toe — Play vs Unbeatable AI</title>
+  <meta name="description" content="Classic tic tac toe with three AI difficulty levels — Easy, Tricky and an unbeatable Minimax mode. Play solo or pass-and-play with a friend." />
+  <meta property="og:title" content="Tic Tac Toe — Play vs Unbeatable AI" />
+  <meta property="og:description" content="Three difficulty levels including a never-loses minimax AI. Play solo or with a friend." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0d0b16" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9D%8C%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#board">Skip to board</a>
+
+  <main class="app">
+    <header class="brand">
+      <h1>❌ Tic·Tac·<span>Toe</span></h1>
+      <p class="tagline">Beat the machine. (Spoiler: on Minimax, you can't.)</p>
+    </header>
+
+    <section class="controls" aria-label="Game settings">
+      <div class="seg" role="group" aria-label="Opponent">
+        <button class="seg-btn is-active" id="mode-ai" type="button" aria-pressed="true">vs AI</button>
+        <button class="seg-btn" id="mode-2p" type="button" aria-pressed="false">2 Players</button>
+      </div>
+      <div class="seg" id="diff-wrap" role="group" aria-label="AI difficulty">
+        <button class="seg-btn diff" data-diff="easy" type="button" aria-pressed="false">Easy</button>
+        <button class="seg-btn diff is-active" data-diff="tricky" type="button" aria-pressed="true">Tricky</button>
+        <button class="seg-btn diff" data-diff="minimax" type="button" aria-pressed="false">Minimax 😈</button>
+      </div>
+    </section>
+
+    <section class="scorebar" aria-label="Score">
+      <div class="score s-x"><span class="score-num" id="score-x">0</span><span class="score-label" id="label-x">You (X)</span></div>
+      <div class="score s-d"><span class="score-num" id="score-d">0</span><span class="score-label">Draws</span></div>
+      <div class="score s-o"><span class="score-num" id="score-o">0</span><span class="score-label" id="label-o">AI (O)</span></div>
+    </section>
+
+    <p id="status" class="status" aria-live="polite">Your move — you're X</p>
+
+    <div class="board-wrap">
+      <div id="board" class="board" role="grid" aria-label="Tic tac toe board"></div>
+    </div>
+
+    <div class="actions">
+      <button id="new-round" class="btn btn-primary" type="button">New round</button>
+      <button id="reset-scores" class="btn btn-ghost" type="button">Reset scores</button>
+    </div>
+
+    <footer class="foot">
+      <p>Built with vanilla JS · minimax with alpha-beta pruning</p>
+      <p>© <span id="year"></span> <a href="https://github.com/MuhammadAwais047" target="_blank" rel="noopener noreferrer">Muhammad Awais</a> · <a href="https://github.com/MuhammadAwais047/tic-tac-toe" target="_blank" rel="noopener noreferrer">Source</a></p>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

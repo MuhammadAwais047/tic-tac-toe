@@ -80,15 +80,18 @@
   };
 
   const setTurnGlow = () => {
-    $(".s-x").classList.toggle("is-turn", !state.over && state.current === "X");
-    $(".s-o").classList.toggle("is-turn", !state.over && state.current === "O");
+    document.querySelector(".s-x")?.classList.toggle("is-turn", !state.over && state.current === "X");
+    document.querySelector(".s-o")?.classList.toggle("is-turn", !state.over && state.current === "O");
   };
 
   const setStatus = (text, cls = "", thinking = false) => {
     statusEl.className = `status ${cls}`;
-    statusEl.innerHTML = thinking
-      ? `${text}<span class="thinking-dots"></span>`
-      : text;
+    statusEl.textContent = text;
+    if (thinking) {
+      const dots = document.createElement("span");
+      dots.className = "thinking-dots";
+      statusEl.appendChild(dots);
+    }
   };
 
   const humanName = (p) => (state.mode === "ai" ? (p === "X" ? "You" : "AI") : `Player ${p}`);
